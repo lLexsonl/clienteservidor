@@ -7,6 +7,9 @@ import com.google.gson.Gson;
 import java.sql.SQLException;
 import java.util.Properties;
 import agenciaviajes.acceso.IRegistraduria;
+import agenciaviajes.acceso.IServidorCentral;
+import agenciaviajes.acceso.ServivioServidorCentral;
+
 
 /**
  * Representa el modelo (Observable) de datos Cuando hay cambios en el estado,
@@ -15,11 +18,12 @@ import agenciaviajes.acceso.IRegistraduria;
  * @author Julio, Libardo, Ricardo
  */
 public class GestorClientes extends AModel {
-
+    private final IServidorCentral servidorCentral;
     private final IRegistraduria registraduria;
     private ConectorJdbc conector;
 
     public GestorClientes() {
+        servidorCentral = new ServivioServidorCentral();
         registraduria = new ServicioRegistraduriaSocket();
         conector = new ConectorJdbc();
     }
@@ -178,8 +182,14 @@ public class GestorClientes extends AModel {
         conector.desconectarse();
         this.notificar();
     }
-    
+    /**
+     * Función que retorna la cantidad de hombres que hay. Se usa StreamParallel, un filtro y la función count.
+     * @return int con la cantidad de hombres
+     * @throws ClassNotFoundException
+     * @throws SQLException 
+     */
     public int getTotalHombres() throws ClassNotFoundException, SQLException{
+        //<editor-fold defaultstate="collapsed" desc="Algoritmo que cuenta los hombres usando un for each">
         /*
         int count = 0;
         for(Cliente c: consultarClientes()){
@@ -188,15 +198,28 @@ public class GestorClientes extends AModel {
         }
         return count;
         */
+    //</editor-fold>
         return (int)consultarClientes().parallelStream().filter(c -> c.getSexo().equals("Masculino")).count();
     }
-    
+    /**
+     * Función que retorna la cantidad de mujeres que hay. Se usa StreamParallel, un filtro y la función count.
+     * @return int con la cantidad de mujeres
+     * @throws ClassNotFoundException
+     * @throws SQLException 
+     */
     public int getTotalMujeres() throws ClassNotFoundException, SQLException{
+        //<editor-fold defaultstate="collapsed" desc="Algoritmo que cuenta las mujeres con un for each">
+        
         /*
         int count = 0;
         for(Cliente c: consultarClientes())
             count = (c.getSexo().equals("Femenino")) ? count + 1 : count;
         return count;*/
+    //</editor-fold>
         return (int)consultarClientes().parallelStream().filter(c -> c.getSexo().equals("Femenino")).count();
-    }    
+    }
+    
+    public void guardarCliente(String id, String nombres, String apellidos, String direccion, String celular, String email, String sexo){
+        
+    }
 }

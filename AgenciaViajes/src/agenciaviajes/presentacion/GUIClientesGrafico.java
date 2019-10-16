@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package agenciaviajes.presentacion;
 
 import agenciaviajes.negocio.GestorClientes;
@@ -13,6 +8,7 @@ import java.util.logging.Logger;
 import mvcf.AModel;
 import mvcf.AView;
 
+// Imports de JFreeChart para el diagrama de Barras
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.CategoryDataset;
@@ -21,7 +17,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
- *
+ * Gráfico que muestra la cantidad de hombres y mujeres que hay en forma de diagrama de barras.
  * @author Yerson
  */
 public class GUIClientesGrafico extends javax.swing.JFrame implements AView{
@@ -96,42 +92,6 @@ public class GUIClientesGrafico extends javax.swing.JFrame implements AView{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param amodel
-     * @param args the command line arguments
-     */
-    //public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        /*try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUIClientesGrafico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUIClientesGrafico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUIClientesGrafico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUIClientesGrafico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }*/
-        //</editor-fold>
-
-        /* Create and display the form */
-    /*    java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUIClientesGrafico().setVisible(true);
-            }
-        });
-    }*/
-    
     @Override
     public void actualizar(AModel amodel) {
         System.out.println("Grafico");
@@ -143,54 +103,6 @@ public class GUIClientesGrafico extends javax.swing.JFrame implements AView{
             Utilidades.mensajeError("Error al consultar clientes", "Atención");
         }
     }
-    //<editor-fold defaultstate="collapsed" desc="Second Form to draw the bar chart">
-    /* For use next you need this
-
-    import org.jfree.chart.axis.CategoryAxis;
-    import org.jfree.chart.axis.NumberAxis;
-    import org.jfree.chart.plot.CategoryPlot;
-    import org.jfree.chart.renderer.category.BarRenderer;
-    import org.jfree.chart.renderer.category.CategoryItemRenderer;
-    import org.jfree.chart.renderer.category.LineAndShapeRenderer;
-    
-    */
- /*   private void actualizarJFreeChart(int hombres, int mujeres){
-        // Create Category plot
-      CategoryPlot plot = new CategoryPlot();
-
-      // Add the first dataset and render as bar
-      CategoryItemRenderer lineRenderer = new LineAndShapeRenderer();
-      plot.setDataset(0, createDataset2(hombres, mujeres));
-      plot.setRenderer(0, lineRenderer);
-      // Add the second dataset and render as lines
-      CategoryItemRenderer baRenderer = new BarRenderer();
-      plot.setDataset(1, createDataset2(hombres, mujeres));
-      plot.setRenderer(1, baRenderer);
-      
-      // Set Axis
-      plot.setDomainAxis(new CategoryAxis("Sexo"));
-      plot.setRangeAxis(new NumberAxis("Cantidad"));
-      
-      JFreeChart chart = new JFreeChart(plot);
-      chart.setTitle("Catidad de Hombres y Mujeres");
-
-      ChartPanel panel = new ChartPanel(chart);
-      setContentPane(panel);
-    }
-    
-    private DefaultCategoryDataset createDataset2(int hombres, int mujeres) {
-
-      // First Series
-      String series1 = "Hombres";
-      DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-      dataset.addValue(hombres, series1, "sexo");
-      
-      String series2 = "Mujeres";
-      dataset.addValue(mujeres, series2, "sexo");
-      return dataset;
-   }*/
-//</editor-fold>
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel pnPanel1;
     // End of variables declaration//GEN-END:variables

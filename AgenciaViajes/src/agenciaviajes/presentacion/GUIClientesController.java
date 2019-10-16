@@ -89,5 +89,15 @@ public class GUIClientesController extends AActionController {
         }
 
     }
+    
+    private void guardarClientes() {
+        try {
+            gestor.agregarCliente(vista.getId(), vista.getNombres(), vista.getApellidos(), vista.getDireccion(), vista.getCelular(), vista.getEmail(), vista.getSexo());
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(GUIClientesController.class.getName()).log(Level.SEVERE, null, ex);
+            Utilidades.mensajeError("Error al agregar el cliente", "Atención");
+        }
+        Utilidades.mensajeExito("Empleado agregado con éxito", "Atención");
+    }
 
 }

@@ -1,5 +1,14 @@
 
-package registraduria.negocio;
+package servidorcentral.negocio;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,7 +23,11 @@ import java.util.logging.Logger;
  */
 public class GestorCiudadano {
 
+    //Probando con archivos
+    private static final String FICHERO = "F:\\2019-2\\IngSoftII\\Lab Practica 5\\Taller4-cliente-servidor\\ServidorCentral\\src\\servidorcentral\\recursos\\CiudadanosArch.txt";
+    private static Path path = Paths.get(FICHERO);
     private List<Ciudadano> listado;
+    private static PrintWriter salida;
 
     public GestorCiudadano() {
         listado = new ArrayList();
@@ -45,5 +58,18 @@ public class GestorCiudadano {
             }
         }
         return null;
+    }
+    
+    public void guardarCiudadano(String id){
+       
+        Ciudadano ciudadano = buscarCiudadano(id);
+        if(ciudadano != null) {
+            try(BufferedWriter bw = Files.newBufferedWriter(path, Charset.defaultCharset(), StandardOpenOption.APPEND)) {
+                bw.write(ciudadano.toString());
+                bw.newLine();
+            }catch(IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 }

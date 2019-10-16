@@ -2,6 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/F:/2019-2/IngSoftII/Lab%20Practica%205/Taller4-cliente-servidor/AgenciaViajes/src/agenciaviajes/presentacion/GUIClientes.java</file>
+            <file>file:/F:/2019-2/IngSoftII/Lab%20Practica%205/Taller4-cliente-servidor/AgenciaViajes/src/agenciaviajes/negocio/GestorClientes.java</file>
+            <file>file:/F:/2019-2/IngSoftII/Lab%20Practica%205/Taller4-cliente-servidor/AgenciaViajes/src/agenciaviajes/acceso/ServivioServidorCentral.java</file>
+            <file>file:/F:/2019-2/IngSoftII/Lab%20Practica%205/Taller4-cliente-servidor/AgenciaViajes/src/agenciaviajes/presentacion/GUIClientesController.java</file>
+        </group>
     </open-files>
 </project-private>

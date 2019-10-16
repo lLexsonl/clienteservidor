@@ -180,8 +180,7 @@ public class GUIClientes extends javax.swing.JFrame implements AView {
         System.exit(0);
     }//GEN-LAST:event_btnCerrarActionPerformed
     /**
-     * Valida que los datos estén correctamente diligenciados en el formulario
-     *
+     * Valida que los datos estén correctamente diligenciados en el formulario.
      * @return true si están bien diligenciados, false en caso contrario
      */
     public boolean validarFormulario() {
